@@ -39,3 +39,9 @@ def edit_task(request,task_id):
             return(HttpResponseRedirect(reverse('todos:task_list')))
     context={'form':form,'task_id':task_id}
     return render(request,'todos/edit_task.html',context)
+
+def delete_task(request,task_id):
+    task = Task.objects.get(id=task_id)
+    task.delete()
+    return HttpResponseRedirect(reverse('todos:task_list'))
+    

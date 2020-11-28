@@ -5,7 +5,10 @@
       <li>
         <p>{{task.date_added}}</p>
         <p>{{task.title}}</p>
-      </li>
+        <p>
+        <a href="{% url 'todos:edit_task' task.id%}">Edit</a>
+        <a href="{% url 'todos:delete_task' task.id%}">Done</a>
+        </p>
     {% endfor %}
   </ul>
   <a href="{% url 'todos:create_task'%}">New Task</a>
